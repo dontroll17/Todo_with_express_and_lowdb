@@ -19,6 +19,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
+    const id = req.params.id
     try {
         await db.read();
         if(!db.data.length) {
