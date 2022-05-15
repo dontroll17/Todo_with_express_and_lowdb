@@ -3,6 +3,7 @@ const router = Router();
 import db from'../db/index.js';
 
 router.get('/', async (req, res, next) => {
+    // #swagger.description = 'Get all todos'
     try {
         await db.read();
         if(db.data.length) {
@@ -19,7 +20,8 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-    const id = req.params.id
+    // #swagger.description = 'Get todo by ID'
+    const id = req.params.id;
     try {
         await db.read();
         if(!db.data.length) {
@@ -40,6 +42,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+    // #swagger.description = 'Create new todo'
     const text = req.body.text;
 
     if(!text) {
@@ -66,6 +69,7 @@ router.post('/', async (req, res, next) => {
 });
 
 router.put('/:id', async (req, res, next) => {
+    // #swagger.description = 'Update existing todo'
     const id = req.params.id;
 
     if(!id) {
@@ -99,6 +103,7 @@ router.put('/:id', async (req, res, next) => {
 });
 
 router.delete('/:id', async (req, res, next) => {
+    // #swagger.description = 'Remove existing todo'
     const id = req.params.id;
     if(!id) {
         return res.status(400).json({message: 'no id'});
