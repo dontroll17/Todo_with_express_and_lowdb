@@ -1,6 +1,12 @@
-# Simple express server with fake db (lowdb)
+# Todo list with express and fake db
 
-## server type - module
+## Instalation 
+```
+npm ci - dependencies
+```
 
-### npm run dev - start dev 
-### npm run start - start production
+## Start app
+```
+npm run dev - start dev 
+npm run start - start production
+```
